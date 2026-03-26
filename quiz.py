@@ -1,7 +1,7 @@
 import random
 
 questions = [
-    'What is the largest animal on earth?',
+    'What is the largest animal on earth?', 
     'What is the fastest animal on earth?',
     'What is the most famous muscial in the Jukebox genre?',
     'Who directed this musical?',
@@ -33,6 +33,7 @@ def select_question_and_answer(questions: list, answers: list, asked: list) -> t
 
     # TODO check if asked list is already same size as questions and answers list
     # TODO if so, return None
+    # TODO code so questions do not repeat
 
     r = random.randint(0, len(questions) - 1)
     while r in asked:
@@ -43,7 +44,7 @@ def select_question_and_answer(questions: list, answers: list, asked: list) -> t
 
 if __name__ == '__main__':
     print('welcome to my quiz!')
-    print('Categories: Book Musicals, Concept Musicals, Jukebox Musicals, and Rock/Pop Operas')
+    print('Category: Mamma Mia!')
 
     count = 0
     i = 0
