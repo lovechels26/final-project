@@ -31,9 +31,9 @@ asked = []
 
 def select_question_and_answer(questions: list, answers: list, asked: list) -> tuple:
 
-    # TODO check if asked list is already same size as questions and answers list
-    # TODO if so, return None
-    # TODO code so questions do not repeat
+    if len(asked) == len(questions):
+        print('all questions have been asked!')
+        return None
 
     r = random.randint(0, len(questions) - 1)
     while r in asked:
@@ -46,18 +46,20 @@ if __name__ == '__main__':
     print('welcome to my quiz!')
     print('Category: Mamma Mia!')
 
-    count = 0
+    score = 0
+
     i = 0
     while i < len(questions):
-        q = select_question_and_answer(questions, answers, asked)
+        qa = select_question_and_answer(questions, answers, asked)
 
-        response = input(questions[0] + ' ')
+        response = input(qa[0] + ' ').lower()
 
-    response = response.lower() == r[1].lower()
+        if response == qa[1]:
+            print('Correct!')
+            score += 1
+        else:
+            print('Incorrect')
 
-    if response == answers[0]:
-        print('Correct!')
-    else:
-        print('Incorrect')
+        i += 1
 
-    i += 1
+    print(f'Congratulations you got {score} out of {len(questions)}')
